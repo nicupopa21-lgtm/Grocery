@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shopping Checklist</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <h1>Shopping Checklist</h1>
+      <p>dm · Asia Markt · Kaufland</p>
+    </div>
+    <div class="header-actions">
+      <button id="exportBtn" class="secondary">Export bought list</button>
+      <button id="resetBtn" class="danger">Reset all</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="summary" aria-label="Shopping summary">
+      <div class="summary-card"><span id="totalCount">0</span><small>Total items</small></div>
+      <div class="summary-card"><span id="boughtCount">0</span><small>Bought</small></div>
+      <div class="summary-card"><span id="remainingCount">0</span><small>Remaining</small></div>
+      <div class="summary-card"><span id="optionalCount">0</span><small>Optional</small></div>
+    </section>
+
+    <section class="controls" aria-label="Filters">
+      <input id="searchInput" type="search" placeholder="Search English, German, Indonesian, brand..." />
+      <select id="storeFilter">
+        <option value="all">All shops</option>
+        <option value="dm">dm</option>
+        <option value="Asia Markt">Asia Markt</option>
+        <option value="Kaufland">Kaufland</option>
+      </select>
+      <select id="statusFilter">
+        <option value="all">All status</option>
+        <option value="Buy">Buy only</option>
+        <option value="Optional">Optional only</option>
+      </select>
+      <select id="viewFilter">
+        <option value="remaining">Remaining only</option>
+        <option value="all">All items</option>
+        <option value="bought">Bought only</option>
+      </select>
+    </section>
+
+    <section class="confirm-bar">
+      <div>
+        <strong>Step:</strong> Tick products while shopping, then press confirm. Confirmed products stay saved on this device.
+      </div>
+      <button id="confirmBtn">Confirm selected as bought</button>
+    </section>
+
+    <section id="storeSections" class="store-sections"></section>
+
+    <section class="notes">
+      <h2>Buying notes</h2>
+      <ul>
+        <li><strong>Asia Markt</strong>: dry food, sauces, spices, noodles mostly for about 3 weeks.</li>
+        <li><strong>Kaufland meat</strong>: about 2 weeks. Portion and freeze.</li>
+        <li><strong>Fresh vegetables</strong>: about 4–5 days only.</li>
+        <li><strong>dm beauty</strong>: for 1 person. Optional products are clearly marked.</li>
+      </ul>
+    </section>
+  </main>
+
+  <dialog id="exportDialog">
+    <form method="dialog">
+      <h2>Bought list export</h2>
+      <p>Copy this text if you want to send or save it.</p>
+      <textarea id="exportText" readonly></textarea>
+      <div class="dialog-actions">
+        <button value="cancel" class="secondary">Close</button>
+        <button id="copyExportBtn" value="default" type="button">Copy</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
